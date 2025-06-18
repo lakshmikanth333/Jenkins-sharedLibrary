@@ -42,7 +42,6 @@ pipeline {
                 steps {
                     script {
                         sh """
-                        sudo su
                          docker build -t node:1 .
                         """
                     }
