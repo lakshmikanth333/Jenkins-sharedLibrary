@@ -56,6 +56,13 @@ pipeline {
             //         }
             //     }
             // }
+            stage('echo') {
+                steps {
+                    script {
+                        echo "version of nodejs has been read"
+                    }
+                }
+            }
         }
         post {
             success {
