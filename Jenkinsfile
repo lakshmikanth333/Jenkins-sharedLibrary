@@ -3,6 +3,7 @@ pipeline {
       environment {
         PROJECT = 'expense'
         COMPONENT = 'backend'
+        ACC= 'aws'
         appVersion = ''
       }
 
