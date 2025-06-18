@@ -1,11 +1,11 @@
 pipeline {
     agent any
-      environment {
-        PROJECT = 'expense'
-        COMPONENT = 'backend'
-        ACC= 'aws'
-        appVersion = ''
-      }
+    //   environment {
+    //     PROJECT = 'expense'
+    //     COMPONENT = 'backend'
+    //     ACC= 'aws'
+    //     appVersion = ''
+    //   }
       parameters {
         string(name: 'action', defaultValue: 'deploy')
         choice(name: 'env', choices: ['dev', 'test', 'prod'])
@@ -18,26 +18,27 @@ pipeline {
         }
 
       
-        stages {
-            // stage('Read version' ) {
-            //     steps {
-            //         script {
-            //             def packageJson = readJSON file: 'package.json'
-            //             appVersion = packageJson.version
-            //             echo "Version is: $appVersion"
-            //         }
+        // stages {
+        //     // stage('Read version' ) {
+        //     //     steps {
+        //     //         script {
+        //     //             def packageJson = readJSON file: 'package.json'
+        //     //             appVersion = packageJson.version
+        //     //             echo "Version is: $appVersion"
+        //     //         }
 
-            //     }
-            // }
-            stage('dependents') {
-                steps {
-                    script {
-                        sh """
-                        npm install
-                        """
-                    }
-                }
-            }
+        //     //     }
+        //     // }
+        //     stage('dependents') {
+        //         steps {
+        //             script {
+        //                 sh """
+        //                 npm install
+        //                 """
+        //             }
+        //         }
+        //     }
+        stages {
             stage('docker build') {
                 steps {
                     script {
@@ -66,7 +67,6 @@ pipeline {
             }
             always {
                 echo "doesnt matter too me, i alwys show up phew wheew a h yo"
-                deletedir()
             }
         }
 }
