@@ -1,9 +1,15 @@
 pipeline {
-    agent { label 'agent-1' }
+    agent any
       environment {
         PROJECT = 'expense'
         COMPONENT = 'backend'
         appVersion = ''
+      }
+
+      parameters {
+        string(name: 'ACTION', defaultValue: 'DEPLOY', description: 'THIS IS FOR DEPLOYING CONFIRMATION')
+        choices(name: 'ENV', choices: ['DEV', 'TEST', 'PROD'], description: 'CHOOSE THE ENV')
+        booleanparam(name: 'single-stage', defaultValue: true, description: 'choosing pipeline type')
       }
 
         options {
