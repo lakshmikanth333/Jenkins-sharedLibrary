@@ -6,6 +6,11 @@ pipeline {
         ACC= 'aws'
         appVersion = ''
       }
+      parameters {
+        string(name: 'action', defaultValue: 'deploy')
+        choice(name: 'env', choices: ['dev', 'test', 'prod'])
+        booleanParam(name: 'single-pipeline', defaultValue: true)
+      }
 
         options {
             disableConcurrentBuilds()
