@@ -42,7 +42,7 @@ pipeline {
                 steps {
                     script {
                         sh """
-                        docker build -t backend:1.0 .
+                        sudo docker build -t backend:1.0 .
                         """
                     }
                 }
@@ -51,7 +51,7 @@ pipeline {
                 steps {
                     script {
                         sh """
-                        docker tag backend:1.0 lakshmikanth333/nodedocker:2.0
+                        sudo docker tag backend:1.0 lakshmikanth333/nodedocker:2.0
                         """
                     }
                 }
