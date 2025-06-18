@@ -38,24 +38,24 @@ pipeline {
                     }
                 }
             }
-            stage('docker build') {
-                steps {
-                    script {
-                        sh """
-                         docker build -t node:1 .
-                        """
-                    }
-                }
-            }
-            stage('rename the tag') {
-                steps {
-                    script {
-                        sh """
-                       docker tag node:1 lakshhmikanth33/node:1
-                        """
-                    }
-                }
-            }
+            // stage('docker build') {
+            //     steps {
+            //         script {
+            //             sh """
+            //              docker build -t node:1 .
+            //             """
+            //         }
+            //     }
+            // }
+            // stage('rename the tag') {
+            //     steps {
+            //         script {
+            //             sh """
+            //            docker tag node:1 lakshhmikanth33/node:1
+            //             """
+            //         }
+            //     }
+            // }
         }
         post {
             success {
